@@ -12,24 +12,24 @@ import java.util.*;
 @SuppressWarnings("all")
 public class Solution {
     public List<String> topKFrequent(String[] words, int k) {
-        Map<String,Integer> hashMap = new HashMap<>();
+        Map<String, Integer> hashMap = new HashMap<>();
         for (int i = 0; i < words.length; i++) {
-            hashMap.put(words[i],hashMap.getOrDefault(words[i],0)+1);
+            hashMap.put(words[i], hashMap.getOrDefault(words[i], 0) + 1);
         }
-        PriorityQueue<Map.Entry<String,Integer>> queue = new PriorityQueue<>(new Comparator<Map.Entry<String, Integer>>() {
+        PriorityQueue<Map.Entry<String, Integer>> queue = new PriorityQueue<>(new Comparator<Map.Entry<String, Integer>>() {
             @Override
             public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
-                return o1.getValue()== o2.getValue()?o2.getKey().compareTo(o1.getKey()): o1.getValue()-o2.getValue();
+                return o1.getValue() == o2.getValue() ? o2.getKey().compareTo(o1.getKey()) : o1.getValue() - o2.getValue();
             }
         });
         for (Map.Entry<String, Integer> entry : hashMap.entrySet()) {
             queue.offer(entry);
-            if(queue.size()>k){
+            if (queue.size() > k) {
                 queue.poll();
             }
         }
         List<String> res = new ArrayList<>();
-        while (!queue.isEmpty()){
+        while (!queue.isEmpty()) {
             res.add(queue.poll().getKey());
         }
         Collections.reverse(res);
