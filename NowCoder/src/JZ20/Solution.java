@@ -16,15 +16,16 @@ public class Solution {
 
     Stack<Integer> s1 = new Stack<>();
     Stack<Integer> s2 = new Stack<>();
+
     public void push(int node) {
         s1.push(node);
-        if(s2.isEmpty()) s2.push(node);
-        if(node<=s2.peek()) s2.push(node);
+        if (s2.isEmpty()) s2.push(node);
+        else if (node <= s2.peek()) s2.push(node);
     }
 
     public void pop() {
         int value = s1.pop();
-        if(value==s2.peek()) s2.pop();
+        if (value == s2.peek()) s2.pop();
     }
 
     public int top() {
