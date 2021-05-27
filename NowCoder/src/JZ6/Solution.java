@@ -17,10 +17,10 @@ public class Solution {
         while (n>0&&array[n]==array[0]) n--;
         if(array[n]>array[0]) return array[0];
         int l = 0;
-        int r = array.length;
+        int r = n;
         while (l < r) {
             int mid = l + r >> 1;
-            if (array[mid] > array[0]) l = mid + 1;
+            if (array[mid] >= array[0]) l = mid + 1;
             else r = mid;
         }
         return array[l];
