@@ -2,11 +2,12 @@
  * 类描述：
  *
  * @ClassName Solution
- * @Description TODO
+ * @Description leetcode 1047
  * @Author BaiMohan
  * @Date 2021/3/9 20:26
  * @Version 1.0
  */
+@SuppressWarnings("all")
 public class Solution {
     public String removeDuplicates(String S) {
         StringBuffer stringBuffer=new StringBuffer();
