@@ -21,6 +21,7 @@ public class Solution {
             slow = slow.next;
             fast = fast.next.next;
         }
+        slow.next = null;
         fast = reverseLinkList(slow.next);
         slow = head;
         while (fast != null) {
